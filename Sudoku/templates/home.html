@@ -1,0 +1,41 @@
+<!-- render what is inside block content by overriding the block content in base.html -->
+<!-- otherwise render what is the default content in base.html -->
+<!-- code outside block content in base.html is always rendered since we extend base.html -->
+{% extends 'base.html' %}
+<html>
+    <body>
+        {% block content %}
+        <!-- using Django templating engine for dynamic html pages -->
+        <p>Current User: {{ request.user }}</p>
+        {% if not solution %}
+            <form action="/" method="POST"> {% csrf_token %}
+                <table>
+                    {% for r in "123456789" %}
+                        <tr>
+                        {% for c in "ABCDEFGHI" %}
+                            <td>
+                                <input id="{{c}}{{r}}" type="number" name="{{c}}{{r}}" class="square" min="1" max="9">
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+                <br/>
+                <input id="solve" type="submit" value="Solve">
+            </form>
+        {% else %}
+            <form action="/" method="POST"> {% csrf_token %}
+                <table>
+                    {% for i in solution %}
+                        <tr>
+                            <p>{{ solution.i }}</p>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <br/>
+                <input id="solve" type="submit" value="Solve">
+            </form>
+        {% endif %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Item:<br/></h1>
+<p>
+    Sudoku: {{ obj.sudoku }}<br/>
+    # moves: {{ obj.num_moves }}<br/>
+    Solution: {{ obj.solution }}<br/>
+    Solved?: {{ obj.solved }}<br/>
+    Solve time: {{ obj.solve_time }}<br/>
+    Date: {{ obj.run_date }}<br/>
+</p>
+{% endblock %}

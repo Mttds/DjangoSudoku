@@ -1,0 +1,32 @@
+<!-- All templates will inherit this 'root' template to remove redundant code -->
+<!-- when using extends 'base.html' -->
+<!-- the content inside block content can be overridden by the inheriting template -->
+<!-- by defining again block content (content is a placeholder and can be named as whatever) -->
+<!doctype html>
+<html>
+    <head>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+        <title>Sudoku Solver</title>
+    </head>
+    <h1>Sudoku Solver</h1>
+    {% include 'menu.html' %}
+    <body>
+        {% block content %}Displaying base content{% endblock %}
+    </body>
+</html>

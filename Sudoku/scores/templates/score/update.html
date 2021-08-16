@@ -1,0 +1,14 @@
+<!-- 
+    This html exists to replace the <root>/templates/scores/create.html
+    if this app (scores) is used as a standalone module or if the root
+    one does not exist.
+-->
+{% extends 'base.html' %}
+{% block content %}
+<!-- render again /create end-pont after submit POST action -->
+<form action='.' method='POST'> {% csrf_token %}
+    {{ form.as_p }}
+    <h1>Do you want to update the score for this sudoku?</h1>
+    <p><input type='submit' value='Yes' /> <a href='../'>Cancel</a></p>
+</form>
+{% endblock %}

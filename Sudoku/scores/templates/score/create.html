@@ -1,0 +1,14 @@
+<!-- 
+    This html exists to replace the <root>/templates/scores/create.html
+    if this app (scores) is used as a standalone module or if the root
+    one does not exist.
+-->
+{% extends 'base.html' %}
+{% block content %}
+<!-- render again /create end-pont after submit POST action -->
+<form action='.' method='POST'> {% csrf_token %}
+    <!-- as_p, as_ul, ... renders the form as an html tag -->
+    {{ form.as_p }}
+    <input type='submit' value='Save'/>
+</form>
+{% endblock %}
