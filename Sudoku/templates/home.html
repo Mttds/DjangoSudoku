@@ -7,16 +7,29 @@
         {% block content %}
         <!-- using Django templating engine for dynamic html pages -->
         <p>Current User: {{ request.user }}</p>
-        {% if not solution %}
+        {% if not solution_A %}
             <form action="/" method="POST"> {% csrf_token %}
                 <table>
+                    <tr style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">
+                        <td></td>
+                        <td style="border: 5px solid #0603b157;">A</td>
+                        <td style="border: 5px solid #0603b157;">B</td>
+                        <td style="border: 5px solid #0603b157;">C</td>
+                        <td style="border: 5px solid #0603b157;">D</td>
+                        <td style="border: 5px solid #0603b157;">E</td>
+                        <td style="border: 5px solid #0603b157;">F</td>
+                        <td style="border: 5px solid #0603b157;">G</td>
+                        <td style="border: 5px solid #0603b157;">H</td>
+                        <td style="border: 5px solid #0603b157;">I</td>
+                    </tr>
                     {% for r in "123456789" %}
                         <tr>
-                        {% for c in "ABCDEFGHI" %}
-                            <td>
-                                <input id="{{c}}{{r}}" type="number" name="{{c}}{{r}}" class="square" min="1" max="9">
-                            </td>
-                        {% endfor %}
+                            <td style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">{{r}}</td>
+                            {% for c in "ABCDEFGHI" %}
+                                <td>
+                                    <input id="{{c}}{{r}}" type="number" name="{{c}}{{r}}" class="square" min="1" max="9">
+                                </td>
+                            {% endfor %}
                         </tr>
                     {% endfor %}
                 </table>
@@ -26,14 +39,74 @@
         {% else %}
             <form action="/" method="POST"> {% csrf_token %}
                 <table>
-                    {% for i in solution %}
-                        <tr>
-                            <p>{{ solution.i }}</p>
-                        </tr>
-                    {% endfor %}
+                    <tr style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">
+                        <td></td>
+                        <td style="border: 5px solid #0603b157;">A</td>
+                        <td style="border: 5px solid #0603b157;">B</td>
+                        <td style="border: 5px solid #0603b157;">C</td>
+                        <td style="border: 5px solid #0603b157;">D</td>
+                        <td style="border: 5px solid #0603b157;">E</td>
+                        <td style="border: 5px solid #0603b157;">F</td>
+                        <td style="border: 5px solid #0603b157;">G</td>
+                        <td style="border: 5px solid #0603b157;">H</td>
+                        <td style="border: 5px solid #0603b157;">I</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">1</td>
+                        {% for k,v in solution_A.items %}
+                            <td>{{ v }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">2</td>
+                        {% for k,v in solution_B.items %}
+                            <td>{{ v }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">3</td>
+                        {% for k,v in solution_C.items %}
+                            <td>{{ v }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">4</td>
+                        {% for k,v in solution_D.items %}
+                            <td>{{ v }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">5</td>
+                        {% for k,v in solution_E.items %}
+                            <td>{{ v }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">6</td>
+                        {% for k,v in solution_F.items %}
+                            <td>{{ v }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">7</td>
+                        {% for k,v in solution_G.items %}
+                            <td>{{ v }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">8</td>
+                        {% for k,v in solution_H.items %}
+                            <td>{{ v }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">9</td>
+                        {% for k,v in solution_I.items %}
+                            <td>{{ v }}</td>
+                        {% endfor %}
+                    </tr>
                 </table>
                 <br/>
-                <input id="solve" type="submit" value="Solve">
             </form>
         {% endif %}
         {% endblock %}

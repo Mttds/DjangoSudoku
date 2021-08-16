@@ -10,21 +10,47 @@
                 font-family: arial, sans-serif;
                 border-collapse: collapse;
                 width: 100%;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
             }
             
             td, th {
-                border: 1px solid #dddddd;
-                text-align: left;
+                border: 1px solid #dddddd57;
+                text-align: center;
                 padding: 8px;
+                width: 1px;
             }
             
             tr:nth-child(even) {
+                background-color: #5399e9;
+            }
+
+            tr:nth-child(odd) {
                 background-color: #dddddd;
+            }
+
+            .class-with-tooltip:hover:after {
+                content: 'Tooltip';
+                position: absolute;
+                padding: 5px;
+                border: 1px solid gray;
+                background: whitesmoke;
+                font-size: 14px;
+            }
+
+            .class-title {
+                color: #0603b157;
+                background-color: #dddddd57;
+                font-family: arial, sans-serif;
+                font-weight: bolder;
+                text-align: center;
             }
         </style>
         <title>Sudoku Solver</title>
     </head>
-    <h1>Sudoku Solver</h1>
+    <div class="class-title"><h1>Sudoku Solver</h1></div>
+    <hr/>
     {% include 'menu.html' %}
     <body>
         {% block content %}Displaying base content{% endblock %}

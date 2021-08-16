@@ -45,7 +45,7 @@ def grid_values(i_string):
             result_dict[key] = all_values
     return result_dict
 
-###############################################################################
+################################################################################
 # REDUCING TECHNIQUE - Elimination
 ################################################################################
 def eliminate(sudoku_dict):
@@ -68,7 +68,7 @@ def eliminate(sudoku_dict):
                 sudoku_dict[key_cp] = sudoku_dict[key_cp].replace(current_value,'')
     return sudoku_dict
 
-###############################################################################
+################################################################################
 # REDUCING TECHNIQUE - Only choice
 ################################################################################
 def only_choice(sudoku_dict):
