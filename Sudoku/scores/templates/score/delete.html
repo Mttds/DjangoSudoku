@@ -6,7 +6,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <form method='POST'> {% csrf_token %}
-    <h1>Do you want to delete the score for sudoku "{{ obj.sudoku }}"?</h1>
-    <p><input type='submit' value='Yes' /> <a href='../'>Cancel</a></p>
+    <h1 style="color: white">Do you want to delete the score for sudoku "{{ obj.sudoku }}"?</h1>
+    <p style="color: white"><input type='submit' value='Yes' /> <a href='../'><input type='button' value='Cancel' /></a></p>
 </form>
 {% endblock %}

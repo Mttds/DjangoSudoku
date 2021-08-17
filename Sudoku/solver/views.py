@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 from .solver import solve, display, grid_values
+from scores.models import Score
+import datetime
 
 # Create your views here.
 # the first param passed is the request
@@ -24,6 +26,7 @@ class HomeView(View):
         post_dict = request.POST.copy() # GET and POST QueryDicts are immutable so we need to make a copy
         post_dict.pop('csrfmiddlewaretoken')
         input_string = ""
+        output_string = ""
         for k, v in post_dict.items():
             if v == '':
                 v = '.'
@@ -32,7 +35,13 @@ class HomeView(View):
         input_as_dict = grid_values(input_string)
         solution = solve(input_string)
         if(not(solution)):
+            Score.objects.create(sudoku=input_string, solution="", solved=False, run_date=datetime.datetime.now()) # save to database
             return render(request, "unsolved.html", {"sudoku": input_string})
+
+        for k, v in solution.items():
+            if v == '' or v == '123456789':
+                v = '.'
+            output_string = output_string + v
 
         # display on server side the input and the solution as a text grid
         display(input_as_dict)
@@ -57,6 +66,7 @@ class HomeView(View):
             "solution_H": solution_H,
             "solution_I": solution_I
         },
+        Score.objects.create(sudoku=input_string, solution=output_string, solved=True, run_date=datetime.datetime.now()) # save to database
         return render(request, self.template_name, context[0]) # context is a tuple, we want just the first element which is a dict of dictionaries
 
     #def get_success_url(self):

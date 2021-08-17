@@ -5,13 +5,11 @@
 -->
 {% extends 'base.html' %}
 {% block content %}
-<h1>In App Item:<br/></h1>
-<p>
+<h1 style="color: white">In App Item:<br/></h1>
+<p style="color: white">
     Sudoku: {{ obj.sudoku }}<br/>
-    # moves: {{ obj.num_moves }}<br/>
     Solution: {{ obj.solution }}<br/>
     Solved?: {{ obj.solved }}<br/>
-    Solve time: {{ obj.solve_time }}<br/>
     Date: {{ obj.run_date }}<br/>
 </p>
 {% endblock %}

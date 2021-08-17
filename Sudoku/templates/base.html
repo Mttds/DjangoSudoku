@@ -9,10 +9,63 @@
             table {
                 font-family: arial, sans-serif;
                 border-collapse: collapse;
-                width: 100%;
-                width: 80%;
+                width: 50%;
                 margin-left: auto;
                 margin-right: auto;
+            }
+
+            ul li {
+                background: #0603b157;
+                margin: 5px;
+                opacity: 0.8;
+                color: white;
+                font-weight: bolder;
+                font-family: arial, sans-serif;
+            }
+
+            ul {
+                background: #2f3b4f;
+                padding: 20px;
+                opacity: 0.7;
+                width: 20%;
+            }
+
+            a:link {
+                color: white;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            a:visited {
+                color: white;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            a:hover {
+                color: white;
+                background-color: transparent;
+                text-decoration: underline;
+            }
+            a:active {
+                color: white;
+                background-color: transparent;
+                text-decoration: underline;
+            }
+
+            .class-list {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            body {
+                {% load static %}
+                background: url('{% static "img/bg.jpg" %}');
+                webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
             }
             
             td, th {
@@ -23,11 +76,14 @@
             }
             
             tr:nth-child(even) {
-                background-color: #5399e9;
+                background-color: #2f3b4f;
+                color: white;
+                font-weight: bold;
             }
 
             tr:nth-child(odd) {
                 background-color: #dddddd;
+                font-weight: bold;
             }
 
             .class-with-tooltip:hover:after {
@@ -40,11 +96,25 @@
             }
 
             .class-title {
-                color: #0603b157;
-                background-color: #dddddd57;
+                color: white;
+                background-color: #2f3b4f;
                 font-family: arial, sans-serif;
                 font-weight: bolder;
                 text-align: center;
+                border: 5px outset #0603b157;
+                opacity: 0.8;
+            }
+
+            input[type=button], input[type=submit], input[type=reset] {
+                font-family: arial, sans-serif;
+                font-weight: bold;
+                background-color: #2f3b4f;
+                border: none;
+                color: white;
+                padding: 16px 32px;
+                text-decoration: none;
+                margin: 4px 2px;
+                cursor: pointer;
             }
         </style>
         <title>Sudoku Solver</title>

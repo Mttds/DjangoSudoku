@@ -4,27 +4,25 @@
         {% block content %}
         <!-- using Django templating engine for dynamic html pages -->
         <p>
-            Current User: {{ request.user }}<br/><br/>
-            Scores:<br/>
-            <table>
-                <tr>
+            <table class="class-list">
+                <tr style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">
                     <td>#</td>
                     <th>Sudoku</th>
-                    <th># moves</th>
                     <th>Solution</th>
                     <th>Solved</th>
-                    <th>Solve Time</th>
                     <th>Run Date</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                 </tr>
             {% for o in queryset %}
                <tr>
                    <td><a href='{{ o.get_absolute_url }}'>{{ forloop.counter }}</a></td>
                    <td>{{ o.sudoku }}</a></td>
-                   <td>{{ o.num_moves }}</td>
                    <td>{{ o.solution }}</td>
                    <td>{{ o.solved }}</td>
-                   <td>{{ o.solve_time }}</td>
                    <td>{{ o.run_date }}</td>
+                   <td><a href='{{ o.get_update_url }}'>Update</a></td>
+                   <td><a href='{{ o.get_delete_url }}'>Delete</a></td>
                </tr>
             {% endfor %}
             </table>

@@ -3,24 +3,25 @@ from .models import Score
 import datetime
 
 class ScoreForm(forms.ModelForm): # derived class from django's ModelForm class
-    sudoku = forms.CharField(
-        widget=forms.Textarea(
-            attrs={"placeholder":"........","class":"new-class-name"}
-        )
-    ) # forms don't have a TextField so we do it with a widget
-    num_moves  = forms.IntegerField()
-    solution   = forms.CharField(widget=forms.Textarea)
+    #sudoku = forms.CharField(
+    #    widget=forms.Textarea(
+    #        attrs={"placeholder":"........","class":"new-class-name"}
+    #    )
+    #) # forms don't have a TextField so we do it with a widget
+    #num_moves  = forms.IntegerField()
+    sudoku     = forms.CharField(min_length=81,max_length=81)
+    solution   = forms.CharField(max_length=81)
     solved     = forms.BooleanField()
-    solve_time = forms.DurationField()
+    #solve_time = forms.DurationField()
     run_date   = forms.DateTimeField(initial=datetime.datetime.now())
     class Meta:
         model = Score
         fields = [
             'sudoku',
-            'num_moves',
+            #'num_moves',
             'solution',
             'solved',
-            'solve_time',
+            #'solve_time',
             'run_date'
         ]
     # overrides the method clean_<field_name> of ModelForm
@@ -33,13 +34,9 @@ class ScoreForm(forms.ModelForm): # derived class from django's ModelForm class
             
 
 class RawScoreForm(forms.Form): # derived from standard django's Form class
-    sudoku = forms.CharField(
-        widget=forms.Textarea(
-            attrs={"placeholder":"........","class":"new-class-name"}
-        )
-    ) # forms don't have a TextField so we do it with a widget
-    num_moves  = forms.IntegerField()
-    solution   = forms.CharField(widget=forms.Textarea)
+    sudoku     = forms.CharField(min_length=81,max_length=81)
+    #num_moves  = forms.IntegerField()
+    solution   = forms.CharField(min_length=81,max_length=81)
     solved     = forms.BooleanField()
-    solve_time = forms.DurationField()
+    #solve_time = forms.DurationField()
     run_date   = forms.DateTimeField(initial=datetime.datetime.now())

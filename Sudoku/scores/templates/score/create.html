@@ -8,7 +8,7 @@
 <!-- render again /create end-pont after submit POST action -->
 <form action='.' method='POST'> {% csrf_token %}
     <!-- as_p, as_ul, ... renders the form as an html tag -->
-    {{ form.as_p }}
+    <div style="color: white">{{ form.as_p }}</div>
     <input type='submit' value='Save'/>
 </form>
 {% endblock %}

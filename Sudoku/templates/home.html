@@ -6,9 +6,9 @@
     <body>
         {% block content %}
         <!-- using Django templating engine for dynamic html pages -->
-        <p>Current User: {{ request.user }}</p>
         {% if not solution_A %}
             <form action="/" method="POST"> {% csrf_token %}
+            <div>
                 <table>
                     <tr style="border: 5px solid #0603b157; color: white; background-color: #0603b157; font-weight: bolder;">
                         <td></td>
@@ -33,8 +33,10 @@
                         </tr>
                     {% endfor %}
                 </table>
-                <br/>
-                <input id="solve" type="submit" value="Solve">
+                <div style="text-align:center; width: 50%; margin:0 auto;">
+                    <input id="solve" type="submit" value="Solve">
+                </div>
+            </div>
             </form>
         {% else %}
             <form action="/" method="POST"> {% csrf_token %}

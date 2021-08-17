@@ -7,8 +7,8 @@
 {% block content %}
 <!-- render again /create end-pont after submit POST action -->
 <form action='.' method='POST'> {% csrf_token %}
-    {{ form.as_p }}
-    <h1>Do you want to update the score for this sudoku?</h1>
-    <p><input type='submit' value='Yes' /> <a href='../'>Cancel</a></p>
+    <div style="color: white">{{ form.as_p }}</div>
+    <h1 style="color: white">Do you want to update the score for this sudoku?</h1>
+    <p style="color: white"><input type='submit' value='Yes' /> <a href='../'><input type='button' value='Cancel' /></a></p>
 </form>
 {% endblock %}
