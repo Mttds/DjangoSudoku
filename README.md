@@ -5,6 +5,8 @@ The solver uses solution space reduction on the input after filling all the empt
 After the reduction, depth-first search is used recursively for backtracking using constraint satisfaction.
 The solution is coded in "vanilla" Python without using any library.
 
+Run the web server with: $cd Sudoku; python manage.py runserver.
+
 ## Home
 ![image info](./img/home.PNG)
 

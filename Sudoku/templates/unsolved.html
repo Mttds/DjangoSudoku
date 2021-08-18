@@ -3,8 +3,7 @@
     <body>
         {% block content %}
         <!-- using Django templating engine for dynamic html pages -->
-        <p>Current User: {{ request.user }}</p>
-        <p>No solution found for the following Sudoku:<br/>{{ sudoku }}</p>
+        <p style="color:white">No solution found for the following Sudoku:<br/>{{ sudoku }}</p>
         {% endblock %}
     </body>
 </html>
